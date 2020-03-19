@@ -1,7 +1,16 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Input, Button } from 'reactstrap';
 import API from "../../utils/Api";
 
+const styles= {
+    color: "#721c24",
+    backgroundColor: "#f8d7da",
+    borderColor: "#f5c6cb",
+        position: "relative",
+        padding: "0.0rem 1.25rem",
+        marginBottom: "1rem",
+        borderRadius: ".25rem"
+}
 class Contact extends Component {
     constructor() {
         super()
@@ -9,7 +18,10 @@ class Contact extends Component {
         this.state = {
             name: '',
             email: '',
-            message: ''
+            message: '',
+            nameError: '',
+            emailError: '',
+            messageError: ''
         }
         this.handleChange = this.handleChange.bind(this)
         // this.handleSubmit = this.handleSubmit.bind(this)
@@ -17,67 +29,92 @@ class Contact extends Component {
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
+
+    }
+    validate = () => {
+        let nameError = '';
+        let emailError = '';
+        let messageError = '';
+        if (!this.state.name) {
+            nameError = "name cannot be blank";
+        }
+        if (!this.state.email.includes("@")) {
+            emailError = "invalid email";
+        }
+        if (!this.state.message) {
+            messageError = "message cannot be blank";
+        }
+        if (emailError || nameError || messageError) {
+            this.setState({ emailError, nameError, messageError });
+            return false
+        }
+        return true
     }
 
     handleFormSubmit = e => {
         e.preventDefault();
-
+        const isValid = this.validate();
         const newGmail = {
             name: this.state.name,
             email: this.state.email,
             message: this.state.message
         }
-        console.log(newGmail);
-        // axios
+        if (isValid) {
+            console.log(newGmail);
+            // axios
 
-        API.gmail(newGmail);
+            API.gmail(newGmail);
 
-        this.setState(
-            {
-                name: "",  email: "", message: ""
-            }
-        )
+            this.setState(
+                {
+                    name: "", email: "", message: ""
+                }
+            )
+        }
     }
-    // async  handleSubmit(e) {
-    //     e.preventDefault()
-    //     const { name, email, message } = this.state
-    //    // console.log(this.state)
-    //    const form = await axios.post('/api/form', {
-    //         name,
-    //         email,
-    //         message
-    //     })
-
-    // }
     render() {
         return (
-            <Form >
-                <FormGroup>
-                    <Label for="name"> Name: </Label>
-                    <Input
-                        type="text"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleChange} />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="email"> Email: </Label>
-                    <Input
-                        type="email"
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.handleChange} />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="message"> Message: </Label>
-                    <Input
-                        type="textarea"
-                        name="message"
-                        value={this.state.message}
-                        onChange={this.handleChange} />
-                </FormGroup>
-                <Button onClick={this.handleFormSubmit}> Submit</Button>
-            </Form>
+            <div >
+                <Form  >
+                    <FormGroup>
+
+                        <Input
+                            type="text"
+                            name="name"
+                            placeholder="Name:"
+                            required
+                            value={this.state.name}
+                            onChange={this.handleChange} />
+                        <div style={styles}>
+                            {this.state.nameError}</div>
+                    </FormGroup>
+                    <FormGroup>
+
+                        <Input
+                            type="email"
+                            name="email"
+                            placeholder="Email:"
+                            value={this.state.email}
+                            onChange={this.handleChange} />
+                        <div style={styles}>
+                            {this.state.emailError}</div>
+                    </FormGroup>
+                    <FormGroup>
+
+                        <Input
+                            style={{ height: "175px" }}
+                            type="textarea"
+                            name="message"
+                            placeholder="Message:"
+                            value={this.state.message}
+                            onChange={this.handleChange} />
+                        <div style={styles}>
+                            {this.state.messageError}</div>
+                    </FormGroup>
+                    <Button onClick={this.handleFormSubmit}> Submit</Button>
+                </Form>
+
+            </div>
         )
     };
 }

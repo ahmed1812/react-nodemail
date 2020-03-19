@@ -25,7 +25,7 @@ app.post('/api/form', (req, res) => {
   `;
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
+            service: "gmail",
             port: 587,
             // secure: false, // true for 465, false for other ports
             auth: {
@@ -39,7 +39,7 @@ app.post('/api/form', (req, res) => {
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '" my profoleo "<haleigh.zemlak@ethereal.email>', // sender address
+            from: '" my profoleo "<aLgandel86@gmail.com>', // sender address
             to: 'aLgandel86@gmail.com', // list of receivers
            
           
