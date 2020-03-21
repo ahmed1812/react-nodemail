@@ -19,10 +19,9 @@ function Footer(props) {
           </a>
         </li>
       </ul>
-      
           <i c="fas fa-at"> <Mail /></i>
           <br />
-      <h1 className="text-muted small mb-0">Copyright &copy; Your Website 2020</h1>
+      <h1 className="text-muted small mb-0">Copyright &copy; Your Website 2020 <br /><i class="fas fa-phone-volume"> 224-520-1811</i></h1>
     </div>
   </footer>
   )
