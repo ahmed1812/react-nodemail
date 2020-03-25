@@ -1,20 +1,27 @@
-.box{
-    width: 120px;
-    height: 150px;
-  margin-left: 50px;
+
+  .color {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    width:97%;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: 8px;
+   background-image: url("https://github.com/tsjohns9/react-clicky-game/blob/master/src/images/bg.png?raw=true");
   }
-  .box-wrap:hover .box{
-    filter:blur(3px);
-    opacity:.5;
-    transform: scale(.98);
-    box-shadow:none;
-   
-  }
-  .box-wrap:hover .box:hover{
-    transform:scale(1);
-    filter:blur(0px);
-    opacity:1;
-    box-shadow:0 200px 20px 0px rgba(0,0,0,0.01);
-    
-   
+h2, h3 {
+  color: aliceblue;
+  padding:  10px;
+}
+  .text-lift {
+    color: aliceblue;
+    font-size: large;
+    text-transform: uppercase;
+    padding: 10px;
   }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Jumbotron from '../../components/Jumbotron';
 import Header from '../../components/Header';
 import Map from '../Map';
 import Skill from '../Skill'
@@ -7,8 +6,6 @@ import "./style.css";
 import Project from '../../pages/Portfolio';
 import { Link, Element, Events, animateScroll as scroll, scroller } from 'react-scroll'
 import { UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
-
-
 
 class Nev extends Component {
     constructor(props) {
@@ -78,16 +75,16 @@ class Nev extends Component {
       </DropdownToggle>
                         <DropdownMenu style={{ backgroundColor: "#56a5e2", marginRight: "100px" }}>
                             <DropdownItem><Link href="" activeClass="active" className={this.props === "Home" ? "nav-link active" : "nav-link"}
-                                style={{ color: "black" }} to="test5" spy={true} smooth={true} duration={500} >Home</Link></DropdownItem>
+                                style={{ color: "black" }} to="test5" spy={true} smooth={true} duration={500} > <i class="fas fa-home"></i> Home</Link></DropdownItem>
                             <DropdownItem ><Link href="" activeClass="active" className={this.props === "About" ? "nav-link active" : "nav-link"}
-                                style={{ color: "black" }} to="test1" spy={true} smooth={true} duration={500} >About</Link></DropdownItem>
+                                style={{ color: "black" }} to="test1" spy={true} smooth={true} duration={500} > <i class="fas fa-user"></i> About</Link></DropdownItem>
                             <DropdownItem ><Link href="" activeClass="active" className={this.props === "Skill" ? "nav-link active" : "nav-link"}
-                                style={{ color: "black" }} to="test2" spy={true} smooth={true} duration={500} >Skill</Link></DropdownItem>
+                                style={{ color: "black" }} to="test2" spy={true} smooth={true} duration={500} > <i class="fab fa-react"></i> Skill</Link></DropdownItem>
                             <DropdownItem><Link href="" activeClass="active" className={this.props === "Project" ? "nav-link active" : "nav-link"}
-                                style={{ color: "black" }} to="test3" spy={true} smooth={true} duration={500} >Project</Link></DropdownItem>
+                                style={{ color: "black" }} to="test3" spy={true} smooth={true} duration={500} > <i class="fas fa-server"></i> Project</Link></DropdownItem>
 
                             <DropdownItem><Link href="" activeClass="active" className={this.props === "Contact" ? "nav-link active" : "nav-link"}
-                                style={{ color: "black" }} to="test4" spy={true} smooth={true} duration={500} >Contact</Link></DropdownItem>
+                                style={{ color: "black" }} to="test4" spy={true} smooth={true} duration={500} > <i class="fas fa-envelope"></i> Contact</Link></DropdownItem>
                         </DropdownMenu>
                     </UncontrolledButtonDropdown>
 
@@ -102,44 +99,38 @@ class Nev extends Component {
 
                 {/* about */}
 
-
-
                 <Element name="test1" className="element" >
                     <main class="container">
 
                         <article className="block">
+
                             <h1 className="block-header">About Me</h1>
                             <hr />
-                            <br />
+                            <div className="box">
                             <img src={require('../../Images/ahmed.png')} alt="" id="about-image" />
-                            <br /> <br /> <br />
-                            <h5>Hi, I'm Ahmed! I'm a Full Stack Web Developer with a background in statstics and accounting.
-                            I love jigsaw and logic puzzles alike. My abilities both as a quick learner and problem solver
-               serve me well as a computer programmer. I love being able to write code to implement creative solutions.</h5>
-                            <br /><br /> <br />
-                            <hr />
-                            <h4 >... Eduction ...</h4>
+                            </div>
                             <br />
-                            <ul>
-                                <li>Full Stack Web Development Coding Boot Camp in Northwestern University. Rutgers Coding BootCamp
+                            <h5>   <ul><li><i class="fas fa-address-card"></i> Hi, I'm Ahmed! I'm a Full Stack Web Developer with a background in statstics and accounting.
+                            I love jigsaw and logic puzzles alike. My abilities both as a quick learner and problem solver
+               serve me well as a computer programmer. I love being able to write code to implement creative solutions.</li>
+
+                                <li> <i class="fas fa-laptop-code"></i> Full Stack Web Development Coding Boot Camp in Northwestern University. Rutgers Coding BootCamp
                   - Javascript Full Stack Web Development​ . Northwestern University​ , Chicago, IL</li>
-                                <li>Bachelor Science Degree in Statistics
-University Of Baghdad in Iraq</li>
-                            </ul>
-                            <br /><br />
+                                <li> <i class="fas fa-university"></i> Bachelor Science Degree in Statistics University Of Baghdad in Iraq</li>
+                            </ul></h5>
+                            <hr />
+
                         </article>
+
                     </main>
                 </Element>
 
                 {/* skill */}
                 <Element name="test2" className="element" >
-                    <Jumbotron className="color">
 
-                        <Skill />
-                    </Jumbotron>
-
+                    <Skill />
                 </Element>
-
+                <br /><br />
 
                 {/* project */}
                 <Element name="test3" className="element" >
@@ -157,7 +148,6 @@ University Of Baghdad in Iraq</li>
                         </Element>
                     </div>
                 </main>
-
             </div>
         )
     }
