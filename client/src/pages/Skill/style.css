@@ -4,12 +4,11 @@
     font-family: 'Poppins', sans-serif;
     width:97%;
     margin: auto;
-    padding: 0;
-    display: flex;
+    padding: 30px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+   padding-bottom: 40px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     border-radius: 8px;
@@ -23,5 +22,9 @@ h2, h3 {
     color: aliceblue;
     font-size: large;
     text-transform: uppercase;
-    padding: 10px;
+    padding: 20px;
   }
+
+
+
+

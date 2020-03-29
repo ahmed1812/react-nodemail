@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 import API from "../../utils/Api";
 
+
+
 const styles= {
     color: "#721c24",
     backgroundColor: "#f8d7da",
@@ -9,7 +11,8 @@ const styles= {
         position: "relative",
         padding: "0.0rem 1.25rem",
         marginBottom: "1rem",
-        borderRadius: ".25rem"
+        borderRadius: ".25rem",
+        marginTop: "10px"
 }
 class Contact extends Component {
     constructor() {
@@ -49,35 +52,39 @@ class Contact extends Component {
             return false
         }
         return true
+        
     }
-
+    
     handleFormSubmit = e => {
         e.preventDefault();
+       
         const isValid = this.validate();
         const newGmail = {
             name: this.state.name,
             email: this.state.email,
             message: this.state.message
         }
+        
         if (isValid) {
             console.log(newGmail);
+            alert('Posted your message successfully!')
             // axios
-
             API.gmail(newGmail);
-
+           
             this.setState(
                 {
                     name: "", email: "", message: ""
                 }
             )
         }
+       
     }
     render() {
         return (
             <div >
                 <Form  >
                     <FormGroup>
-
+                    
                         <Input
                             type="text"
                             name="name"
@@ -108,12 +115,13 @@ class Contact extends Component {
                             placeholder="Message:"
                             value={this.state.message}
                             onChange={this.handleChange} />
-                        <div style={styles}>
+                        <div style={styles}  >
                             {this.state.messageError}</div>
                     </FormGroup>
-                    <Button onClick={this.handleFormSubmit}> Submit</Button>
-                </Form>
+                    <Button color="primary" onClick={this.handleFormSubmit} > Submit</Button>
 
+                </Form>
+              
             </div>
         )
     };

@@ -6,18 +6,28 @@ li{
   padding: 5px;
 }
 
+
 .box {
   transition: box-shadow .3s;
   border-radius:10px;
-  border: 0px solid #ccc;
-  background: #fff;
+  
+  
   float: left;
   margin: 0 20px 10px 0;
   height: auto;
   width: 200px;
 }
 .box:hover {
-  box-shadow: 10px 40px 30px rgba(33,33,33,.2); 
+  border-radius:10px;
+  z-index: 2;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.5);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.5);   
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.5);
+  transition: all 200ms ease-in;
+  transform: scale(1.5);
 }
   h1 ,h2, h4 , h3{
     text-align: center;
@@ -101,7 +111,7 @@ height: auto;
 }
 
 .container {
-  border-radius: 8px;
+ 
   margin-top: 20px;
  
 }
@@ -119,7 +129,43 @@ h4{
 
   #about-image , .box{
     width: 100%;
+    border-radius:10px;
   }
   
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main1 {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 

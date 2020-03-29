@@ -129,6 +129,7 @@ class Nev extends Component {
                 <Element name="test2" className="element" >
 
                     <Skill />
+                    
                 </Element>
                 <br /><br />
 

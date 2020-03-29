@@ -158,7 +158,7 @@ h1{
   .quotes .boxx p {
     margin: 0;
     padding: 10px;
-    font-size: 13px;
+    font-size: 20px;
   }
   .quotes .boxx {
     width: 100%;
@@ -167,5 +167,13 @@ h1{
   padding: 30px;
   float: left;
   margin-bottom: 10px;
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  .quotes .boxx p {
+    margin: 0;
+    padding: 10px;
+    font-size: 13px;
   }
 }
